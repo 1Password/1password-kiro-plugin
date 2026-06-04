@@ -11,7 +11,8 @@ are never shared with Kiro.
 Note: This plugin currently only supports MacOS
 
 #### Documentation
-https://www.1password.dev/environments/mcp-codex-server
+⚠️ TODO: Placeholder URL for now
+https://www.1password.dev/environments/mcp-kiro-server
 
 ## What's Included
 - Stuff
