@@ -1,4 +1,4 @@
-# 1password-kiro-plugin
+# 1Password Kiro Plugin
 
 This repository contains a Kiro plugin that connects Kiro to the
 1Password desktop app's local MCP server for 1Password Developer Environments.
