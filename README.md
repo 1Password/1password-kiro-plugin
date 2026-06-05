@@ -36,7 +36,6 @@ The local MCP server is expected at:
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
 | [`mcp.json`](mcp.json)   | MCP server configuration that points Kiro at the bundled `onepassword-mcp` binary.                                                |
 | [`POWER.md`](POWER.md)   | Steering doc describing when and how Kiro should use the 1Password MCP server, the exposed tools, common flows, and safety rules. |
-| [`steering/`](steering/) | Additional Kiro steering documents.                                                                                               |
 | [`LICENSE`](LICENSE)     | MIT license.                                                                                                                      |
 
 ## Example Prompts
