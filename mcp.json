@@ -3,7 +3,8 @@
     "1password": {
       "command": "/Applications/1Password.app/Contents/MacOS/onepassword-mcp",
       "args": [],
-      "disabled": false
+      "disabled": false,
+      "autoApprove": ["authenticate", "list_environments"]
     }
   }
 }
