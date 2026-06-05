@@ -1,23 +1,53 @@
 # 1Password Kiro Plugin
 
-This repository contains a Kiro plugin that connects Kiro to the
-1Password desktop app's local MCP server for 1Password Developer Environments.
+A Kiro plugin that connects Kiro to the 1Password desktop app's local MCP
+server for [1Password Developer Environments](https://www.1password.dev/).
 
-The plugin lets Kiro help with secure project environment setup, such as
-listing Developer Environments, inspecting variable names, adding variables, and
-creating local `.env` mounts. Secret values remain controlled by 1Password and
+The plugin lets Kiro help with secure project environment setup — listing
+Developer Environments, inspecting variable names, adding variables, and
+creating local `.env` mounts. Secret values stay controlled by 1Password and
 are never shared with Kiro.
 
-Note: This plugin currently only supports MacOS
+> **Platform:** macOS only.
 
-#### Documentation
-⚠️ TODO: Placeholder URL for now
-https://www.1password.dev/environments/mcp-kiro-server
+## Documentation
+
+> ⚠️ **Placeholder URL** — points to a not-yet-published page while
+> development continues:
+> https://www.1password.dev/environments/mcp-kiro-server
+
+## Prerequisites
+
+- macOS with the 1Password desktop app installed.
+- The **1Password Labs MCP Server** experiment enabled in the desktop app.
+- A 1Password account with Developer Environments enabled.
+
+The local MCP server is expected at:
+
+```text
+/Applications/1Password.app/Contents/MacOS/onepassword-mcp
+```
 
 ## What's Included
-- Stuff
 
-#
+| File | Purpose |
+| --- | --- |
+| [`mcp.json`](mcp.json) | MCP server configuration that points Kiro at the bundled `onepassword-mcp` binary. |
+| [`POWER.md`](POWER.md) | Steering doc describing when and how Kiro should use the 1Password MCP server, the exposed tools, common flows, and safety rules. |
+| [`steering/`](steering/) | Additional Kiro steering documents. |
+| [`LICENSE`](LICENSE) | MIT license. |
+
+## Usage
+
+Once the plugin is enabled in Kiro, you can ask for tasks like:
+
+- "List my 1Password Environments"
+- "Create a local .env mount here"
+- "Show me the variable names in my project environment"
+- "Add a placeholder variable for my OpenAI API key"
+
+The 1Password desktop app may prompt for approval when Kiro connects to the
+MCP server or accesses an Environment.
 
 ## License
 
