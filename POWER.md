@@ -1,8 +1,9 @@
 ---
-name: 1password-environments
-description: Use the local 1Password MCP server to work with secure project environment configuration, 1Password Developer Environments, environment variables, API keys, secrets, and local .env mounts. Use when the user asks to set up env vars for a repo, configure secrets, mount or create a local .env from 1Password, store API keys in 1Password, inspect 1Password Environment variable names, or work with the 1Password MCP server.
+name: "1password"
+displayName: "1Password Developer Environments"
+description: "Use the local 1Password MCP server to work with secure project environment configuration, 1Password Developer Environments, environment variables, API keys, secrets, and local .env mounts. Use when the user asks to set up env vars for a repo, configure secrets, mount or create a local .env from 1Password, store API keys in 1Password, inspect 1Password Environment variable names, or work with the 1Password MCP server."
 keywords: ["1password", "environment", "secret", "dotfile", "dev secrets", "op"]
-author: 1Password
+author: "1Password"
 ---
 
 # 1Password Environments
@@ -17,6 +18,30 @@ Use the 1Password MCP server for all 1Password Developer Environment work.
 - The user wants to list or compare Environment variable names without exposing secret values.
 
 Do not use this skill for unrelated password-manager tasks, arbitrary local `.env` file parsing, or non-1Password secret stores unless the user asks to migrate that configuration into 1Password.
+
+## Onboarding
+### Prerequisites
+
+- macOS with the 1Password desktop app installed.
+- 1Password Labs MCP server experiment enabled in the desktop app.
+- Access to a 1Password account with Developer Environments enabled.
+
+The MCP server is expected at:
+
+```text
+/Applications/1Password.app/Contents/MacOS/onepassword-mcp
+```
+
+### Using the Plugin
+Once installed or enabled in Kiro, you can ask for tasks like:
+
+- "List my 1Password Environments"
+- "Create a local .env mount here"
+- "Show me the variable names in my project environment"
+- "Add a placeholder variable for my OpenAI API key"
+
+The 1Password desktop app may prompt for approval when Kiro connects to the MCP
+server or accesses an Environment.
 
 ## MCP Contents
 
@@ -37,6 +62,19 @@ The local server also exposes documentation resources:
 - `1password://docs/environments-guide`
 
 No resource templates are currently exposed.
+
+## Exposed MCP Tools
+
+The plugin exposes these 1Password MCP tools to Kiro:
+
+- `authenticate`
+- `list_environments`
+- `create_environment`
+- `rename_environment`
+- `list_variables`
+- `append_variables`
+- `create_local_env_file`
+- `list_local_env_files`
 
 ## Workflow
 
