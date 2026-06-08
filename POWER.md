@@ -108,3 +108,19 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 - Ask before creating or modifying Environment variables unless the user's request is already explicit.
 - Treat local `.env` mounts as sensitive even though 1Password does not persist plaintext secret contents to disk.
 - If a user pastes a secret into the chat, do not repeat it back — refer to it by variable name only.
+
+
+## License, Privacy & Support
+
+### This power
+
+- **License:** MIT (SPDX: `MIT`) — see [`LICENSE`](./LICENSE).
+- **Privacy Policy:** https://1password.com/legal/privacy
+- **Support:** https://support.1password.com
+
+### 1Password Developer Environments MCP server
+
+- **License:** Proprietary — bundled with the 1Password desktop app
+  (SPDX: `LicenseRef-1Password-Commercial`). Not open source.
+- **Privacy Policy:** https://1password.com/legal/privacy
+- **Support:** https://support.1password.com
