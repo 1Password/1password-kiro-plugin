@@ -12,9 +12,6 @@ are never shared with Kiro.
 
 ## Documentation
 
-> ⚠️ **Placeholder URL** — points to a not-yet-published page while
-> development continues:
-
 https://www.1password.dev/environments/mcp-kiro-server
 
 ## Prerequisites
