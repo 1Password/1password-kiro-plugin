@@ -19,8 +19,7 @@ https://www.1password.dev/environments/mcp-kiro-server
 ## Prerequisites
 
 - macOS with the [1Password desktop]() app installed.
-- The **1Password Labs MCP Server** experiment enabled in the desktop app.
-  Open the Labs settings with this link: `onepassword://settings/labs`
+- The **1Password MCP Server** is enabled in the desktop app by enabling **Settings > Developer > Integrate with MCP Clients**
 - A 1Password account with Developer Environments enabled.
 
 The local MCP server is expected at:
