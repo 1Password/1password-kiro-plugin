@@ -12,9 +12,8 @@ are never shared with Kiro.
 
 <!-- [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=1password&config=%7B%22command%22%3A%22%2FApplications%2F1Password.app%2FContents%2FMacOS%2Fonepassword-mcp%22%2C%22args%22%3A%5B%5D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%22authenticate%22%2C%22list_environments%22%5D%7D) -->
 
-## Documentation
+<!-- ## Documentation -->
 
-https://www.1password.dev/environments/mcp-kiro-server
 
 ## Prerequisites
 
