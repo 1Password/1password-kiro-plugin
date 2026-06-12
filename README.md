@@ -12,7 +12,30 @@ are never shared with Kiro.
 
 <!-- [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=1password&config=%7B%22command%22%3A%22%2FApplications%2F1Password.app%2FContents%2FMacOS%2Fonepassword-mcp%22%2C%22args%22%3A%5B%5D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%22authenticate%22%2C%22list_environments%22%5D%7D) -->
 
-<!-- ## Documentation -->
+## Documentation
+### **Step 1: Turn on access to the MCP server**
+
+To turn on the 1Password MCP server:
+
+1. In 1Password, go to **Settings > Developer > MCP Server**, then enable “Integrate with MCP clients”
+
+### Step 2: Install the Kiro Power
+
+#### Option 1: Kiro Power Marketplace
+
+- Search for “1Password” at https://kiro.dev/powers
+- Click “Add to Kiro” to open the installation page in Kiro
+- Click “+ Install” to install the Power
+- Click “Try power” to validate your environment and get started.
+
+#### Option 2: Install from GitHub
+
+- In Kiro, click the Powers in the Kiro Activity Bar or choose “Powers: Focus on Installed view”
+- Choose “Add Custom Power”
+- From the menu, choose “Import Power from GitHub
+- Paste in the repo URL (https://github.com/1Password/1password-kiro-plugin)
+- Choose  `1password-kiro-power` in the list of installed Powers
+- Click “Try power” to validate your environment and get started.
 
 
 ## Prerequisites
