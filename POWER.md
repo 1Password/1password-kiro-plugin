@@ -28,7 +28,7 @@ Do not use this power for unrelated password-manager tasks, arbitrary local `.en
 The MCP server binary is at:
 
 ```text
-/Applications/1Password.app/Contents/MacOS/onepassword-mcp
+/Applications/1Password.app/Contents/MacOS/1password-mcp
 ```
 
 If the MCP server is unavailable, direct the user to enable the **1Password Labs MCP Server** experiment in the desktop app. If the Labs setting is missing, the account may not have the required `ai-local-mcp-server` feature flag.

@@ -10,7 +10,7 @@ are never shared with Kiro.
 
 > **Platform:** The MCP server is currently macOS only.
 
-<!-- [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=1password&config=%7B%22command%22%3A%22%2FApplications%2F1Password.app%2FContents%2FMacOS%2Fonepassword-mcp%22%2C%22args%22%3A%5B%5D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%22authenticate%22%2C%22list_environments%22%5D%7D) -->
+<!-- [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=1password&config=%7B%22command%22%3A%22%2FApplications%2F1Password.app%2FContents%2FMacOS%2F1password-mcp%22%2C%22args%22%3A%5B%5D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%22authenticate%22%2C%22list_environments%22%5D%7D) -->
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ are never shared with Kiro.
 The local MCP server is expected at:
 
 ```text
-/Applications/1Password.app/Contents/MacOS/onepassword-mcp
+/Applications/1Password.app/Contents/MacOS/1password-mcp
 ```
 
 ## Documentation
@@ -55,7 +55,7 @@ To turn on the 1Password MCP server:
 
 | File                   | Purpose                                                                                                                           |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [`mcp.json`](mcp.json) | MCP server configuration that points Kiro at the bundled `onepassword-mcp` binary.                                                |
+| [`mcp.json`](mcp.json) | MCP server configuration that points Kiro at the bundled `1password-mcp` binary.                                                |
 | [`POWER.md`](POWER.md) | Steering doc describing when and how Kiro should use the 1Password MCP server, the exposed tools, common flows, and safety rules. |
 | [`LICENSE`](LICENSE)   | MIT license.                                                                                                                      |
 
