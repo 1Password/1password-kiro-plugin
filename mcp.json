@@ -3,8 +3,7 @@
     "1password": {
       "command": "1password-mcp",
       "args": [],
-      "disabled": false,
-      "autoApprove": ["authenticate", "list_environments"]
+      "disabled": false
     }
   }
 }
