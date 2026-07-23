@@ -2,7 +2,16 @@
 name: "1password"
 displayName: "1Password Developer Environments"
 description: "Manage 1Password Developer Environments directly from Kiro on macOS. Set up, mount, and inspect project secrets and .env files without exposing values. Only macOS is supported."
-keywords: ["1password", "environment", "secret", "dotfile", "dev secrets", "op"]
+keywords:
+  [
+    "1password",
+    "secrets",
+    "credentials",
+    "tokens",
+    "environment",
+    "env file",
+    "vault",
+  ]
 author: "1Password"
 ---
 
@@ -11,11 +20,16 @@ author: "1Password"
 ## Use When
 
 - The user mentions 1Password Environments, 1Password Developer Environments, the 1Password MCP server, or local `.env` files from 1Password.
+- The user asks to secure, store, or manage secrets, tokens, API keys, or credentials — even if they don't explicitly mention 1Password.
 - The user asks to set up, mount, create, or sync a project `.env` file from a secret manager and 1Password is available.
-- The user asks to configure repo environment variables, API keys, tokens, credentials, or secrets securely with 1Password.
+- The user asks to configure environment variables, API keys, tokens, or credentials securely.
 - The user wants to list or compare Environment variable names without exposing secret values.
 
-Do not use this power for unrelated password-manager tasks, arbitrary local `.env` file parsing, or non-1Password secret stores unless the user asks to migrate that configuration into 1Password.
+Use your judgment about context. If 1Password isn't installed or mentioned and the request is clearly about a different secrets tool, prefer that tool instead. Do not use this power for unrelated password-manager tasks, arbitrary local `.env` file parsing, or non-1Password secret stores unless the user asks to migrate that configuration into 1Password.
+
+## Available Steering Files
+
+- **1password-secrets** — Reminder rules for when to activate the 1Password power, priority guidance for handling secrets-first requests, and examples of when to reach for 1Password before jumping to code-level fixes.
 
 ## Onboarding
 
@@ -28,7 +42,7 @@ Do not use this power for unrelated password-manager tasks, arbitrary local `.en
 The MCP server binary is at:
 
 ```text
-/Applications/1Password.app/Contents/MacOS/onepassword-mcp
+1password-mcp
 ```
 
 If the MCP server is unavailable, direct the user to enable the **1Password Labs MCP Server** experiment in the desktop app. If the Labs setting is missing, the account may not have the required `ai-local-mcp-server` feature flag.
@@ -91,9 +105,7 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 1. Confirm the user explicitly wants to create or update variables, and collect any missing names or values before proceeding.
 2. Authenticate and resolve the Environment (see above).
 3. Call `list_variables` first to identify whether the requested variable names already exist.
-4. Call `append_variables` using the active MCP tool schema exactly as exposed in the current session.
-   - If the schema accepts structured objects: use `{ "name": "API_KEY", "value": "...", "concealed": true }` for secrets; use `"concealed": false` only for non-sensitive values such as URLs or feature flags.
-   - If the schema exposes `variables` as `string[]`: use the string format required by that schema. Ask for clarification if the format is ambiguous.
+4. Before calling `append_variables`, check the tool's input schema from the active MCP session to confirm the exact format expected for the `variables` parameter. Use whatever format the schema specifies. When passing secret values, set `concealed: true`; use `concealed: false` only for non-sensitive values such as URLs or feature flags.
 
 ## Error Handling
 
@@ -109,6 +121,26 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 - Treat local `.env` mounts as sensitive even though 1Password does not persist plaintext secret contents to disk.
 - If a user pastes a secret into the chat, do not repeat it back — refer to it by variable name only.
 
+## Troubleshooting
+
+### MCP binary not found
+
+If Kiro reports that it cannot find or launch the MCP server (e.g., "command not found" or the server fails to start):
+
+1. **Make sure 1Password is up to date.** The MCP server binary was introduced in a recent release. Open 1Password, go to **1Password menu > Check for Updates**, and install any available update. This is the most common cause of a missing binary.
+2. **Verify the binary exists** at `/Applications/1Password.app/Contents/MacOS/1password-mcp`. If it's missing after updating, reinstall 1Password from [1password.com/downloads](https://1password.com/downloads/).
+3. **Confirm the MCP server is enabled.** In 1Password go to **Settings > Developer > MCP Server** and make sure "Integrate with MCP clients" is turned on. You can also open `onepassword://settings/labs` directly from your browser.
+4. **Restart Kiro** after enabling the MCP server or updating 1Password so it picks up the new binary path.
+
+### Authentication or environment access fails
+
+The 1Password desktop app may need to be unlocked or may be prompting for approval in the background. Check the app, approve the connection request, and retry.
+
+### Labs setting missing from 1Password
+
+If `onepassword://settings/labs` shows no MCP Server option, your account may not yet have the `ai-local-mcp-server` feature flag enabled. Contact [1Password Support](https://support.1password.com) to request access.
+
+For 1Password Business users, the 1Password MCP may be restricted by an administrator policy. Check with your 1Password administrators about any policy or restrictions that might be in place.
 
 ## License, Privacy & Support
 
