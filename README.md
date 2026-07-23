@@ -8,7 +8,7 @@ Developer Environments, inspecting variable names, adding variables, and
 creating local `.env` mounts. Secret values stay controlled by 1Password and
 are never shared with Kiro.
 
-> **Platform:** The MCP server is currently macOS only.
+> **Platform:** The 1Password Kiro Power is currently macOS only.
 
 <!-- [![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=1password&config=%7B%22command%22%3A%22%2FApplications%2F1Password.app%2FContents%2FMacOS%2F1password-mcp%22%2C%22args%22%3A%5B%5D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%22authenticate%22%2C%22list_environments%22%5D%7D) -->
 
