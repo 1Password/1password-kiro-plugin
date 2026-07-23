@@ -105,9 +105,7 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 1. Confirm the user explicitly wants to create or update variables, and collect any missing names or values before proceeding.
 2. Authenticate and resolve the Environment (see above).
 3. Call `list_variables` first to identify whether the requested variable names already exist.
-4. Call `append_variables` using the active MCP tool schema exactly as exposed in the current session.
-   - If the schema accepts structured objects: use `{ "name": "API_KEY", "value": "...", "concealed": true }` for secrets; use `"concealed": false` only for non-sensitive values such as URLs or feature flags.
-   - If the schema exposes `variables` as `string[]`: use the string format required by that schema. Ask for clarification if the format is ambiguous.
+4. Before calling `append_variables`, check the tool's input schema from the active MCP session to confirm the exact format expected for the `variables` parameter. Use whatever format the schema specifies. When passing secret values, set `concealed: true`; use `concealed: false` only for non-sensitive values such as URLs or feature flags.
 
 ## Error Handling
 
