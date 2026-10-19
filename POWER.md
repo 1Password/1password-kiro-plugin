@@ -23,7 +23,7 @@ author: "1Password"
 - The user asks to secure, store, or manage secrets, tokens, API keys, or credentials — even if they don't explicitly mention 1Password.
 - The user asks to set up, mount, create, or sync a project `.env` file from a secret manager and 1Password is available.
 - The user asks to configure environment variables, API keys, tokens, or credentials securely.
-- The user wants to list or compare Environment variable names without exposing secret values.
+- The user wants to list or compare Environment secret names without exposing secret values.
 
 Use your judgment about context. If 1Password isn't installed or mentioned and the request is clearly about a different secrets tool, prefer that tool instead. Do not use this power for unrelated password-manager tasks, arbitrary local `.env` file parsing, or non-1Password secret stores unless the user asks to migrate that configuration into 1Password.
 
@@ -60,8 +60,8 @@ The server exposes two built-in documentation resources that can be read for dee
 - `list_environments`: List Developer Environments for an account. Requires `accountId`.
 - `create_environment`: Create a new Developer Environment. Requires `accountId` and a name.
 - `rename_environment`: Rename an existing Developer Environment. Requires `accountId` and `environmentId`.
-- `list_variables`: List variable _names_ in an Environment without returning values. Requires `accountId` and `environmentId`.
-- `append_variables`: Add or update Environment variables. Requires `accountId` and `environmentId`. See variable schema note in the "Add or update variables" flow below.
+- `list_secrets`: List secret _names_ in an Environment without returning values. Requires `accountId` and `environmentId`.
+- `append_secrets`: Add or update Environment secrets. Requires `accountId` and `environmentId`. See secret schema note in the "Add or update secrets" flow below.
 - `create_local_env_file`: Mount an Environment as a local `.env` file. Requires `accountId`, `environmentId`, `environmentName`, and an absolute `mountPath`. macOS only.
 - `list_local_env_files`: List existing local `.env` mounts for an Environment. Requires `accountId` and `environmentId`.
 
@@ -87,10 +87,10 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 4. If no duplicate exists, call `create_local_env_file` with `accountId`, `environmentId`, `environmentName`, and the absolute `mountPath`.
 5. Report the mount path and Environment name. Do not read the mounted `.env` file to verify it — use `list_local_env_files` instead.
 
-### Inspect variables
+### Inspect secrets
 
 1. Authenticate and resolve the Environment (see above).
-2. Call `list_variables`. Summarize the returned variable names only — do not request or display values.
+2. Call `list_secrets`. Summarize the returned secret names only — do not request or display values.
 
 ### Create a new Environment
 
@@ -98,14 +98,14 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 2. Confirm the intended name with the user if it was not explicitly stated.
 3. Call `create_environment` with `accountId` and the chosen name.
 4. Store the `environmentId` from the response for any follow-on operations.
-5. If the user wants to add variables immediately, proceed to the "Add or update variables" flow.
+5. If the user wants to add secrets immediately, proceed to the "Add or update secrets" flow.
 
-### Add or update variables
+### Add or update secrets
 
-1. Confirm the user explicitly wants to create or update variables, and collect any missing names or values before proceeding.
+1. Confirm the user explicitly wants to create or update secrets, and collect any missing names or values before proceeding.
 2. Authenticate and resolve the Environment (see above).
-3. Call `list_variables` first to identify whether the requested variable names already exist.
-4. Before calling `append_variables`, check the tool's input schema from the active MCP session to confirm the exact format expected for the `variables` parameter. Use whatever format the schema specifies. When passing secret values, set `concealed: true`; use `concealed: false` only for non-sensitive values such as URLs or feature flags.
+3. Call `list_secrets` first to identify whether the requested secret names already exist.
+4. Before calling `append_secrets`, check the tool's input schema from the active MCP session to confirm the exact format expected for the `secrets` parameter. Use whatever format the schema specifies. When passing secret values, set `concealed: true`; use `concealed: false` only for non-sensitive values such as URLs or feature flags.
 
 ## Error Handling
 
@@ -117,9 +117,9 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 
 - Do not reveal, log, or echo secret values.
 - Do not read a mounted `.env` file to verify it exists — use `list_local_env_files` instead.
-- Ask before creating or modifying Environment variables unless the user's request is already explicit.
+- Ask before creating or modifying Environment secrets unless the user's request is already explicit.
 - Treat local `.env` mounts as sensitive even though 1Password does not persist plaintext secret contents to disk.
-- If a user pastes a secret into the chat, do not repeat it back — refer to it by variable name only.
+- If a user pastes a secret into the chat, do not repeat it back — refer to it by secret name only.
 
 ## Troubleshooting
 

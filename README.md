@@ -4,7 +4,7 @@ A Kiro plugin that connects Kiro to the 1Password desktop app's local MCP
 server for [1Password Developer Environments](https://www.1password.dev/).
 
 The plugin lets Kiro help with secure project environment setup — listing
-Developer Environments, inspecting variable names, adding variables, and
+Developer Environments, inspecting secret names, adding secrets, and
 creating local `.env` mounts. Secret values stay controlled by 1Password and
 are never shared with Kiro.
 
@@ -64,8 +64,8 @@ Once the plugin is enabled in Kiro, you can ask for tasks like:
 
 - "List my 1Password Environments"
 - "Create a local .env mount here"
-- "Show me the variable names in my project environment"
-- "Add a placeholder variable for my OpenAI API key"
+- "Show me the secret names in my project environment"
+- "Add a placeholder secret for my OpenAI API key"
 - "Create a new Environment called my-project"
 
 The 1Password desktop app may prompt for approval when Kiro connects to the
