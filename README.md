@@ -15,7 +15,7 @@ are never shared with Kiro.
 ## Prerequisites
 
 - macOS with the [1Password desktop](https://1password.com/downloads/) app installed.
-- The **1Password MCP Server** is enabled in the desktop app under **Settings > Developer > MCP Server > Integrate with MCP clients**.
+- **Integrate with MCP clients** turned on under **Settings > Developer** in the desktop app.
 - A 1Password account with Developer Environments enabled.
 
 The local MCP server is expected at:
@@ -30,7 +30,7 @@ The local MCP server is expected at:
 
 To turn on the 1Password MCP server:
 
-1. In 1Password, go to **Settings > Developer > MCP Server**, then enable "Integrate with MCP clients".
+1. In 1Password, go to **Settings > Developer**, then turn on **Integrate with MCP clients**.
 
 ### Step 2: Install the Kiro Power
 

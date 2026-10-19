@@ -36,7 +36,7 @@ Use your judgment about context. If 1Password isn't installed or mentioned and t
 ### Prerequisites
 
 - macOS with the 1Password desktop app installed.
-- 1Password Labs MCP server experiment enabled in the desktop app (`onepassword://settings/labs`).
+- **Integrate with MCP clients** turned on under **Settings > Developer** in the desktop app.
 - Access to a 1Password account with Developer Environments enabled.
 
 The MCP server binary is at:
@@ -45,7 +45,7 @@ The MCP server binary is at:
 1password-mcp
 ```
 
-If the MCP server is unavailable, direct the user to enable the **1Password Labs MCP Server** experiment in the desktop app. If the Labs setting is missing, the account may not have the required `ai-local-mcp-server` feature flag.
+If the MCP server is unavailable, direct the user to turn on **Integrate with MCP clients** under **Settings > Developer** in the desktop app. For a missing or disabled checkbox, see **MCP setting missing or disabled in 1Password** below.
 
 ### MCP Documentation Resources
 
@@ -110,7 +110,7 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 ## Error Handling
 
 - **Authentication or environment access fails:** Tell the user the 1Password desktop app may need approval, unlocking, or account access.
-- **MCP server unavailable:** Direct the user to enable the 1Password Labs MCP Server experiment in the desktop app via `onepassword://settings/labs`. If the setting is missing, the account may lack the `ai-local-mcp-server` feature flag.
+- **MCP server unavailable:** Direct the user to turn on **Integrate with MCP clients** under **Settings > Developer**. For a missing or disabled checkbox, see **MCP setting missing or disabled in 1Password** below.
 - **`create_local_env_file` fails:** Confirm the user is on macOS. This tool is not available on other platforms even though 1Password Developer Environments work on Linux.
 
 ## Safety
@@ -129,18 +129,18 @@ If Kiro reports that it cannot find or launch the MCP server (e.g., "command not
 
 1. **Make sure 1Password is up to date.** The MCP server binary was introduced in a recent release. Open 1Password, go to **1Password menu > Check for Updates**, and install any available update. This is the most common cause of a missing binary.
 2. **Verify the binary exists** at `/Applications/1Password.app/Contents/MacOS/1password-mcp`. If it's missing after updating, reinstall 1Password from [1password.com/downloads](https://1password.com/downloads/).
-3. **Confirm the MCP server is enabled.** In 1Password go to **Settings > Developer > MCP Server** and make sure "Integrate with MCP clients" is turned on. You can also open `onepassword://settings/labs` directly from your browser.
+3. **Confirm the MCP server is enabled.** In 1Password, go to **Settings > Developer** and make sure **Integrate with MCP clients** is turned on.
 4. **Restart Kiro** after enabling the MCP server or updating 1Password so it picks up the new binary path.
 
 ### Authentication or environment access fails
 
 The 1Password desktop app may need to be unlocked or may be prompting for approval in the background. Check the app, approve the connection request, and retry.
 
-### Labs setting missing from 1Password
+### MCP setting missing or disabled in 1Password
 
-If `onepassword://settings/labs` shows no MCP Server option, your account may not yet have the `ai-local-mcp-server` feature flag enabled. Contact [1Password Support](https://support.1password.com) to request access.
+If **Integrate with MCP clients** is missing from **Settings > Developer**, update 1Password. If the checkbox is still missing, your account may not have the `ai-local-mcp-server` feature flag enabled. Contact [1Password Support](https://support.1password.com) for help checking feature availability.
 
-For 1Password Business users, the 1Password MCP may be restricted by an administrator policy. Check with your 1Password administrators about any policy or restrictions that might be in place.
+If the checkbox is disabled by an administrator, ask your 1Password administrator to check **Policies > Sharing and permissions > Agentic permissions > Local MCP server**.
 
 ## License, Privacy & Support
 
