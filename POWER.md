@@ -1,6 +1,6 @@
 ---
 name: "1password"
-displayName: "1Password Developer Environments"
+displayName: "1Password Developer Tools"
 description: "Manage 1Password Developer Environments directly from Kiro on macOS. Set up, mount, and inspect project secrets and .env files without exposing values. Only macOS is supported."
 keywords:
   [
@@ -15,7 +15,7 @@ keywords:
 author: "1Password"
 ---
 
-# 1Password Environments
+# 1Password Developer Tools
 
 ## Use When
 
