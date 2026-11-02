@@ -111,6 +111,7 @@ Most operations start here. Run this sequence at the beginning of any turn unles
 
 - **Authentication or environment access fails:** Tell the user the 1Password desktop app may need approval, unlocking, or account access.
 - **MCP server unavailable:** Direct the user to turn on **Integrate with MCP clients** under **Settings > Developer**. For a missing or disabled checkbox, see **MCP setting missing or disabled in 1Password** below.
+- **MCP server fails to start on macOS 27 Golden Gate:** See **MCP server fails to start on macOS 27 Golden Gate** below.
 - **`create_local_env_file` fails:** Confirm the user is on macOS. This tool is not available on other platforms even though 1Password Developer Environments work on Linux.
 
 ## Safety
@@ -131,6 +132,17 @@ If Kiro reports that it cannot find or launch the MCP server (e.g., "command not
 2. **Verify the binary exists** at `/Applications/1Password.app/Contents/MacOS/1password-mcp`. If it's missing after updating, reinstall 1Password from [1password.com/downloads](https://1password.com/downloads/).
 3. **Confirm the MCP server is enabled.** In 1Password, go to **Settings > Developer** and make sure **Integrate with MCP clients** is turned on.
 4. **Restart Kiro** after enabling the MCP server or updating 1Password so it picks up the new binary path.
+
+### MCP server fails to start on macOS 27 Golden Gate
+
+If the user is on macOS 27 Golden Gate and the MCP server fails to start, or the logs show `Failed to start logger: Log cannot be written`, macOS is blocking Kiro from accessing 1Password app data. Ask the user to:
+
+1. Open **System Settings** > **Privacy & Security** > **Files & Folders**.
+2. Select **Kiro**.
+3. Turn on the setting that starts with **"Data shared by 1Password"**.
+4. Quit and reopen Kiro.
+
+Full Disk Access is not needed.
 
 ### Authentication or environment access fails
 

@@ -50,6 +50,15 @@ To turn on the 1Password MCP server:
 - Choose `1password` in the list of installed Powers
 - Click "Try power" to validate your environment and get started.
 
+### Step 3: Allow Kiro to access 1Password data (macOS 27 Golden Gate)
+
+On macOS 27 Golden Gate, macOS blocks Kiro from accessing 1Password app data by default and doesn't ask for permission. Until you allow it, the MCP server can't start.
+
+1. Open **System Settings** > **Privacy & Security** > **Files & Folders**.
+2. Select **Kiro**.
+3. Turn on the setting that starts with **"Data shared by 1Password"**. The rest of the name depends on which 1Password apps you've installed.
+4. Quit Kiro (`Cmd+Q`), reopen it, and confirm the 1Password MCP server is connected.
+
 ## What's Included
 
 | File                   | Purpose                                                                                                                           |
